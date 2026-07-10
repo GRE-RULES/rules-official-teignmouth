@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Golf Rules Education — Ask the Rules Assistant</title>
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+background-color: #24582A; /* Your exact green theme background */
+color: #FAEE2E; /* Your exact yellow highlights */
+font-family: 'Georgia', serif;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: flex-start; /* Pulls all content up to the top of the screen */
+min-height: 100vh;
+text-align: center;
+padding: 30px 20px 10px 20px; /* Clean top buffer, compressed bottom padding */
+}
+
+/* Clear, compressed typography settings directly on the headings */
+h1 { font-size: 2rem; color: #FAEE2E; text-transform: uppercase; letter-spacing: 1px; }
+.tagline { font-size: 1.1rem; color: #cccccc; margin-top: 4px; font-style: italic; }
+
+/* Tighter visual club banner gaps for small mobile layouts */
+#club-welcome-banner {
+font-size: 1.3rem;
+color: #FAEE2E;
+margin-top: 10px;
+margin-bottom: 5px;
+font-weight: bold;
+text-transform: capitalize;
+border: 2px dashed #FAEE2E;
+padding: 6px 12px;
+border-radius: 10px;
+display: inline-block;
+}
+
+.instruction { font-size: 1.1rem; color: #eeeeee; max-width: 400px; line-height: 1.5; margin-top: 15px; }
+.instruction span { color: #FAEE2E; font-weight: bold; }
+.mic-note { font-size: 1.1rem; color: #FAEE2E; margin-top: 6px; max-width: 400px; }
+
+/* Compressed button row spacing to save height */
+footer { 
+margin-top: 20px; 
+display: flex;
+flex-direction: row;
+gap: 12px; 
+justify-content: center;
+flex-wrap: wrap; 
+}
+
+/* Base Button Design */
+.btn-base {
+display: inline-block;
+text-decoration: none; 
+font-weight: bold; 
+padding: 10px 24px; /* Lower padding to prevent vertical screen overflow */
+border-radius: 25px; 
+font-family: Arial, sans-serif; 
+font-size: 0.9rem;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+transition: all 0.2s ease;
+}
+.btn-base:active {
+transform: scale(0.97); 
+}
+
+/* Primary Solid Yellow Button (Return) */
+.btn-back { 
+background-color: #FAEE2E; 
+color: #24582A; 
+}
+.btn-back:hover { 
+background-color: #e5da25; 
+color: #1b4220;
+}
+
+/* Solid Filled Light Green Button (PDF Guide) */
+.btn-pdf {
+background-color: #78E08F; 
+color: #24582A; 
+}
+.btn-pdf:hover {
+background-color: #62cf7a; 
+color: #1b4220;
+}
+</style>
+</head>
+<body>
+
+<!-- Direct Heading Text (Completely removed old logo-area wrappers) -->
+<h1>Golf Rules Education</h1>
+<p class="tagline">Master the Rules, Play with Confidence</p>
+
+<!-- Clean Visual Welcome Box -->
+<div id="club-welcome-banner" style="display: none;"></div>
+
+<p class="instruction">
+Click the floating <span>green phone widget</span> in the bottom right corner of your screen to start a live audio call with our Rules Assistant.
+</p>
+
+<p class="mic-note">🎙️ Please choose "Allow" if your web browser asks for microphone access.</p>
+
+<footer>
+<!-- Cleaned Single PDF User Guide Button -->
+<a href="user-instructions.pdf" target="_blank" class="btn-base btn-pdf">📄 View User Guide</a>
+
+<!-- Return Link Button -->
+<a href="#" class="btn-base btn-back" onclick="window.close(); return false;">Return to Website</a>
+</footer>
+
+<!-- Your Original, Fully Verified Retell Script Tag -->
+<script 
+id="retell-widget" 
+src="https://dashboard.retellai.com/retell-widget-v2.js?v=99"
+type="module" 
+data-widget="voice"
+data-voice-public-key="public_key_8c3674150bf33bfd0c741" 
+data-voice-agent-id="agent_b92224c12a2b87536a1181890c" 
+data-fab-text="Ask your Question" 
+data-color="#00875A"
+></script>
+
+<!-- Independent Visual-Only Banner Script -->
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    let rawClub = urlParams.get('club');
+
+    if (rawClub) {
+        let cleanClubName = rawClub.replace(/-/g, ' ');
+        const banner = document.getElementById('club-welcome-banner');
+        if (banner) {
+            banner.innerText = "Welcome " + cleanClubName;
+            banner.style.display = "inline-block";
+        }
+    }
+});
+</script>
+
+</body>
+</html>
