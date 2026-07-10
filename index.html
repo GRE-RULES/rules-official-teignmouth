@@ -89,6 +89,21 @@ color: #24582A;
 background-color: #62cf7a; 
 color: #1b4220;
 }
+
+/* Custom Warning Style */
+.billing-warning {
+margin-top: 20px;
+max-width: 400px;
+font-family: Arial, sans-serif;
+font-size: 0.9rem;
+font-weight: bold;
+line-height: 1.4;
+color: #ffffff;
+border: 1px dashed #FAEE2E;
+padding: 10px 14px;
+border-radius: 8px;
+background-color: rgba(250, 238, 46, 0.08);
+}
 </style>
 </head>
 <body>
@@ -113,6 +128,11 @@ Click the floating <span>green phone widget</span> in the bottom right corner of
 <!-- Return Link Button -->
 <a href="#" class="btn-base btn-back" onclick="window.close(); return false;">Return to Website</a>
 </footer>
+
+<!-- High-visibility warning notice positioned cleanly beneath the buttons -->
+<div class="billing-warning">
+    ⚠️ To disconnect your call, please use the red close call button. If you fail to do this additional costs will be incurred.
+</div>
 
 <!-- Your Original, Fully Verified Retell Script Tag -->
 <script 
